@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
 import Shop from "../src/routes/Shop";
 import Contact from "../src/routes/Contact";
-import Blog from "../src/pages/about"
-import About from './pages/about'
 
 export default function App() {
   return (
@@ -21,7 +19,7 @@ export default function App() {
           <Route path="/Shop" element={<Shop />} />
           <Route path="/Contact" element={<Contact />} />
           <Route path="/blog" element={<Blog />} />
-          <Route path="/about" element={<About />} />
+        <Route path="/about" element={<About />} />
 
         </Routes>
       </div>
