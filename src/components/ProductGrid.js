@@ -1,4 +1,3 @@
-// components/ProductGrid.js
 import { useContext } from "react";
 import ProductCard from "./ProductCard";
 import { ShopContext } from "../context/ShopContext";

@@ -7,7 +7,6 @@ export const ContactProvider = ({ children }) => {
 
   const addMessage = (message) => {
     setMessages((prev) => [...prev, message]);
-    // هنا كمان تقدر تبعت الرسالة لـ Firebase
   };
 
   return (
@@ -17,7 +16,6 @@ export const ContactProvider = ({ children }) => {
   );
 };
 
-// ✅ الهـوك اللي كان ناقص
 export const useContact = () => {
   return useContext(ContactContext);
 };

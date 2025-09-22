@@ -1,4 +1,3 @@
-// components/Sidebar.js
 import { useContext, useMemo } from "react";
 import { ShopContext } from "../context/ShopContext";
 

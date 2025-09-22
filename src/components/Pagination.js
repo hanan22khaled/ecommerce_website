@@ -1,4 +1,3 @@
-// components/Pagination.jsx
 import { useContext } from "react";
 import { ShopContext } from "../context/ShopContext";
 
@@ -16,7 +15,7 @@ function Pagination() {
   } else if (currentPage < 3) {
     pagesToRender = [1, 2, 3, "dots", totalPages];
   } else {
-    // لو currentPage >= 3 حسب طلبك نعرض كل الأرقام (النقاط تختفي)
+    // لو currentPage >= 3  نعرض كل الأرقام (النقاط تختفي)
     pagesToRender = Array.from({ length: totalPages }, (_, i) => i + 1);
   }
 
