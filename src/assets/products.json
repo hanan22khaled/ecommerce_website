@@ -1,0 +1,237 @@
+[
+  {
+    "id": 1,
+    "title": "All Natural Italian-Style Chicken Meatballs",
+    "oldPrice": 9.35,
+    "newPrice": 7.25,
+    "discount": 22,
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "image": "/images/products/meatballs.jpg"
+  },
+  {
+    "id": 2,
+    "title": "Angie's Boomchickapop Sweet & Salty Kettle Corn",
+    "oldPrice": 4.29,
+    "newPrice": 3.29,
+    "discount": 23,
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "image": "/images/products/kettle-corn.jpg"
+  },
+  {
+    "id": 3,
+    "title": "Field Roast Chao Cheese Creamy Original",
+    "oldPrice": 24.00,
+    "newPrice": 19.50,
+    "discount": 19,
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "image": "/images/products/chao-cheese.jpg"
+  },
+  {
+    "id": 4,
+    "title": "Foster Farms Takeout Crispy Wings Classic Buffalo Wings",
+    "oldPrice": 59.99,
+    "newPrice": 49.99,
+    "discount": 17,
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "image": "/images/products/buffalo-wings.jpg"
+  },
+  {
+    "id": 5,
+    "title": "Blue Diamond Almonds Lightly Salted",
+    "oldPrice": 14.50,
+    "newPrice": 11.68,
+    "discount": 18,
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "image": "/images/products/almonds.jpg"
+  },
+  
+  {
+    "id": 1,
+    "title": "American Cheese Singles",
+    "image": "https://picsum.photos/200/200?random=1",
+    "discount": "18%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 3.29,
+    "newPrice": 3.99
+  },
+  {
+    "id": 2,
+    "title": "Blueberries - 1 Pint Package",
+    "image": "https://picsum.photos/200/200?random=2",
+    "discount": "11%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 4.49,
+    "newPrice": 3.99
+  },
+  {
+    "id": 3,
+    "title": "Chobani Complete Vanilla Greek Yogurt",
+    "image": "https://picsum.photos/200/200?random=3",
+    "discount": "18%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 5.49,
+    "newPrice": 4.49
+  },
+  {
+    "id": 4,
+    "title": "Challenge Spreadable Butter",
+    "image": "https://picsum.photos/200/200?random=4",
+    "discount": "14%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 7.59,
+    "newPrice": 6.49
+  },
+  {
+    "id": 5,
+    "title": "Fairlife Lactose-Free Mate Coffee Creamer",
+    "image": "https://picsum.photos/200/200?random=5",
+    "discount": "16%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 4.49,
+    "newPrice": 3.69
+  },
+  {
+    "id": 6,
+    "title": "Nestle Original Coffee-Mate Coffee Creamer",
+    "image": "https://picsum.photos/200/200?random=6",
+    "discount": "25%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 13.99,
+    "newPrice": 10.99
+  },
+  {
+    "id": 7,
+    "title": "Organic Cage-Free Grade A Large Brown Eggs",
+    "image": "https://picsum.photos/200/200?random=7",
+    "discount": "15%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 4.69,
+    "newPrice": 3.99
+  },
+  {
+    "id": 8,
+    "title": "Vital Farms Pasture-Raised Grade A Large Eggs",
+    "image": "https://picsum.photos/200/200?random=8",
+    "discount": "14%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 28.00,
+    "newPrice": 24.00
+  },
+  {
+    "id": 1,
+    "title": "Yellow Onions",
+    "image": "https://picsum.photos/200/200?random=9",
+    "discount": "10%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 2.00,
+    "newPrice": 1.80
+  },
+  {
+    "id":2,
+    "title": "Tomatoes on the Vine",
+    "image": "https://picsum.photos/200/200?random=10",
+    "discount": "11%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 3.99,
+    "newPrice": 3.50
+  },
+  {
+    "id":3,
+    "title": "Organic Sweet Lime",
+    "image": "https://picsum.photos/200/200?random=11",
+    "discount": "14%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 6.99,
+    "newPrice": 5.99
+  },
+  {
+    "id": 4,
+    "title": "Fresh Organic Strawberry",
+    "image": "https://picsum.photos/200/200?random=12",
+    "discount": "22%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 8.00,
+    "newPrice": 6.25
+  },
+
+  {
+    "id":5,
+    "title": "Sweet Geo Red Grapefruit",
+    "image": "https://picsum.photos/200/200?random=13",
+    "discount": "40%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 7.50,
+    "newPrice": 4.50
+  },
+  {
+    "id":6,
+    "title": "Fresh Organic Kiwi",
+    "image": "https://picsum.photos/200/200?random=14",
+    "discount": "17%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 6.30,
+    "newPrice": 5.28
+  },
+  {
+    "id":7,
+    "title": "Organic Green Grapes",
+    "image": "https://picsum.photos/200/200?random=15",
+    "discount": "15%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 6.75,
+    "newPrice": 5.75
+  },
+  {
+    "id":8,
+    "title": "Fresh Cavendish Bananas",
+    "image": "https://picsum.photos/200/200?random=16",
+    "discount": "15%",
+    "stock": "IN STOCK",
+    "reviews": 1,
+    "rating": 4,
+    "oldPrice": 8.00,
+    "newPrice": 7.00
+  }
+]
+  
+

@@ -6,3 +6,21 @@
 @import "@fontsource/inter/500.css"; /* Medium */
 @import "@fontsource/inter/600.css"; /* SemiBold */
 @import "@fontsource/inter/700.css"; /* Bold */
+
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+/*scroll hide*/
+.scrollbar-hide::-webkit-scrollbar {
+  display: none; 
+}
+.scrollbar-hide {
+  -ms-overflow-style: none;  /* IE و Edge */
+  scrollbar-width: none;     /* Firefox */
+}
+html {
+  scroll-behavior: smooth;
+}
