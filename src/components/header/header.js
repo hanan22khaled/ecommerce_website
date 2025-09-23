@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react";
 import "./header.css";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
-// /
 function Header() {
   const [active, setActive] = useState("HOME");
   const [mobileOpen, setMobileOpen] = useState(false);
