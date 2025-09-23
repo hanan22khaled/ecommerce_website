@@ -162,7 +162,7 @@ function Header() {
             className="absolute top-14 right-3 w-52 bg-white shadow-lg flex flex-col p-3 gap-2 z-20 rounded-lg"
           >
             {links.map((link) => (
-              <a
+              <Link
                 key={link.name}
                 href={link.href}
                 onClick={() => setActive(active === link.name ? null : link.name)}
@@ -174,7 +174,7 @@ function Header() {
               >
                 {link.icon && <i className={`fa-solid ${link.icon} mr-2`}></i>}
                 {link.name}
-              </a>
+              </Link>
             ))}
             <button className="mt-3 px-1 py-2 rounded-lg bg-[#35AFA0] text-white text-sm">
               <i className="fa-regular fa-user mr-2"></i>User Account
