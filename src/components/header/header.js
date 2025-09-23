@@ -1,4 +1,5 @@
 import { useState, useEffect, useRef } from "react";
+import { Link } from "react-router-dom";
 import "./header.css";
 import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
@@ -253,7 +254,8 @@ function Header() {
                 </MenuItems>
               </Menu>
             ) : (
-              <button
+              <Link
+                to={link.href}
                 key={link.name}
                 onClick={() =>
                   setActive(active === link.name ? null : link.name)
@@ -266,7 +268,7 @@ function Header() {
               >
                 {link.icon && <i className={`fa-solid ${link.icon}`}></i>}
                 {link.name}
-              </button>
+              </Link>
             )
           )}
         </div>
