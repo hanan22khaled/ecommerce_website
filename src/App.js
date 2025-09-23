@@ -3,16 +3,13 @@ import Shop from "../src/routes/Shop";
 import Contact from "../src/routes/Contact";
 import Blog from "../src/pages/about"
 import About from './pages/about'
+import Header from "./components/header/header"
+import Footer from "./pages/footer/footer"
 
 export default function App() {
   return (
     <Router>
-      {/* الهيدر */}
-      <nav className="bg-gray-800 text-white p-4 flex space-x-6">
-        <Link to="/">Home</Link>
-        <Link to="/Shop">Shop</Link>
-        <Link to="/Contact">Contact</Link>
-      </nav>
+      <Header/>
 
       {/* الراوتينج */}
       <div className="p-6">
@@ -25,6 +22,7 @@ export default function App() {
 
         </Routes>
       </div>
+      <Footer/>
     </Router>
   );
 }

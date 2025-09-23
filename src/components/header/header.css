@@ -1,0 +1,101 @@
+.header-sec{
+     width: 100%;
+     height: 150px;
+}
+.first-part{
+     height: 20px;
+     background-color: #35AFA0 ;
+     color: white;
+     text-align: center;
+     font-size: 11px;
+     line-height: 20px;
+}
+.sec-part{
+     height: 25px;
+     padding: 0px 230px;
+     display: flex;
+     justify-content:space-between ;
+}
+.left-sec-part{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+}
+.left-sec-part a{
+     font-size: 11px;
+     margin: 0px 5px;
+}
+.right-sec-part span{
+     font-size: 11px;
+}
+@media(max-width:480px){
+     .sec-part{
+          height: 100px;
+          padding: 0px 15px;
+          text-align: center;
+     }
+     .left-sec-part {
+          padding: 13px 0px;
+          flex-direction: column;
+          width: 120px;
+          margin-right: 10px;
+     }
+     .btn-menu{
+          width: 40px;
+          font-size: 10px;
+     }
+     .btn-menu2{
+          width: 30px;
+     }
+     .right-sec-part span{
+          font-size: 10px;
+     }
+     .search{
+          font-size: 10px;
+     }
+     .search input{
+          padding-left: 30px;
+     }
+     .third-part{
+          gap: 3px;
+          box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+     }
+     .third-part .user-icon{
+          display: none;
+     }
+     .circle-round{
+          width: 25px;
+          height: 25px;
+     }
+     .price{
+          display: none;
+     }
+     .fourth-part{
+          padding: 0;
+     }
+     .all-category{
+          width: 150px;
+     }
+     /* .Hamburger-btn{
+          margin-left: 370px;
+          margin-top: -70px;
+     } */
+}
+@media(min-width:481px) and (max-width:885px){
+     .sec-part{
+          height: 90px;
+          text-align: center;
+          padding: 10px 12% ;
+     }
+     .left-sec-part a{
+          width: 48px;
+     }
+     /* .fourth-part{
+          padding: 5px  120px;
+          font-size: 10px;
+     } */
+     /* .Hamburger-btn{
+          margin-left: 650px;
+          margin-top: -80px;
+     } */
+}
