@@ -1,0 +1,25 @@
+[
+  {
+    "id": 1,
+    "image": "https://picsum.photos/400/300?random=1",
+    "badge": "Weekend Discount 40%",
+    "title": "Natural Eggs",
+    "subtitle": "Eat one every day"
+  },
+  {
+    "id": 2,
+    "image": "https://picsum.photos/400/300?random=2",
+    "badge": "Weekend Discount 40%",
+    "title": "Taste the Best",
+    "subtitle": "Shine the morning"
+  
+  },
+  {
+    "id": 3,
+    "image": "https://picsum.photos/400/300?random=3",
+    "badge": "Weekend Discount 40%",
+    "title": "Ditch the Junk",
+    "subtitle": "Breakfast made better"
+  
+  }
+]
