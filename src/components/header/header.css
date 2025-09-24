@@ -11,6 +11,9 @@
      font-size: 11px;
      line-height: 20px;
 }
+.fourth-part{
+     gap:288px;
+}
 
 .sec-part {
      height: 25px;
@@ -125,9 +128,18 @@
      } */
 }
 
-@media(min-width:1777px) {
+@media(max-width:1778px) {
      .sec-part {
 
           gap: 30%
+     }
+}
+
+@media(min-width:891px) and (max-width:1520px) {
+     .fourth-part{
+          gap:48px !important;
+     }
+     .dist{
+          gap:8px !important;
      }
 }
