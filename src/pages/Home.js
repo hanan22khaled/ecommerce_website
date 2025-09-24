@@ -200,7 +200,7 @@ function BestSellers() {
           ))}
           {showModal && (
                      <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
-                         <div onClick={(e) => e.stopPropagation()} className="bg-white w-full h-full lg:w-[50%] md:h-[99%] p-2 relative flex flex-col rounded-lg">
+                         <div onClick={(e) => e.stopPropagation()} className="bg-white w-full md:w-[75%] lg:w-[50%] h-full md:h-[99%] p-2 relative flex flex-col rounded-lg">
                              <div className="absolute top-1 right-1 cursor-pointer  z-10">
                                  <IoClose onClick={() => setShowModal(false)} size={30} />
                              </div>
