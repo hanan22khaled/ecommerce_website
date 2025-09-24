@@ -7,7 +7,7 @@ import { doc, getDoc, updateDoc } from "firebase/firestore";
 import { db } from "../firebase"; // غيّري المسار حسب مشروعك
 
 // زيادة الكمية
-const increaseQuantity = async (productId) => {
+const IncreaseQuantity = async (productId) => {
   try {
     const productRef = doc(db, "cart", productId);
     const productSnap = await getDoc(productRef);
@@ -26,7 +26,7 @@ const increaseQuantity = async (productId) => {
 };
 
 // تقليل الكمية
-const decreaseQuantity = async (productId) => {
+const ecreaseQuantity = async (productId) => {
   try {
     const productRef = doc(db, "cart", productId);
     const productSnap = await getDoc(productRef);
