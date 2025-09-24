@@ -5,17 +5,15 @@ import ProductDetailsPage from "../../components/ProductDetailsPage";
 import { useProductsDetails } from "../../context/ProductDetailsContext";
 import "../home/home.css"
 import { useHomeContext } from "../../context/HomeContext";
-import img1 from '../../assets/homeImages/bacola-banner-05.jpg.png'
-import img2 from '../../assets/homeImages/home-banner-15.jpg.png'
-import img3 from '../../assets/homeImages/bacola-banner-06.jpg.png'
-import img5 from '../../assets/homeImages/category-banner-2.jpg.png'
-
-
+import img1 from '../../assets/bacola-banner-05.jpg.png'
+import img2 from '../../assets/home-banner-15.jpg.png'
+import img3 from '../../assets/bacola-banner-06.jpg.png'
+import img5 from '../../assets/category-banner-2.jpg.png'
 //بانر أساسي 
-import slider1 from '../../assets/homeImages/slider-image-8.jpg.png'
-import slider2 from '../../assets/homeImages/sidebar-banner.gif.png'
-import slider3 from '../../assets/homeImages/home-banner-15.jpg.png'
-import slider4 from '../../assets/homeImages/home-banner-16.jpg.png'
+import slider1 from '../../assets/slider-image-8.jpg.png'
+import slider2 from '../../assets/sidebar-banner.gif.png'
+import slider3 from '../../assets/home-banner-15.jpg.png'
+import slider4 from '../../assets/home-banner-16.jpg.png'
 
 const HomePage = () => {
 
@@ -131,7 +129,7 @@ const HomePage = () => {
 };
 
 
-// 👇 كومبوننت Best Sellers
+// كومبوننت Best Sellers
 function BestSellers() {
   const scrollRef = React.useRef(null);
   // useHomeContext لجلب قائمة المنتجات
@@ -178,7 +176,7 @@ function BestSellers() {
           ref={scrollRef}
           className="flex overflow-x-auto scrollbar-hide scroll-smooth pb-8 gap-4"
 
-         >
+        >
           {bestSellers.map((product) => (
             <div
               key={product.id}
@@ -241,18 +239,18 @@ function BestSellers() {
               </button>
             </div>
           ))}
-                {showModal && (
-                  <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
-                    <div onClick={(e) => e.stopPropagation()} className="bg-white w-full md:w-[75%] lg:w-[50%] h-full md:h-[99%] p-2 relative flex flex-col rounded-lg">
-                      <div className="absolute top-1 right-1 cursor-pointer  z-10">
-                        <IoClose onClick={() => setShowModal(false)} size={30} />
-                      </div>
-                      <div className="flex-1 overflow-y-auto mt-2">
-                        <ProductDetailsPage />
-                      </div>
-                    </div>
-                  </div>
-                )}
+          {showModal && (
+            <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
+              <div onClick={(e) => e.stopPropagation()} className="bg-white w-full md:w-[75%] lg:w-[50%] h-full md:h-[99%] p-2 relative flex flex-col rounded-lg">
+                <div className="absolute top-1 right-1 cursor-pointer  z-10">
+                  <IoClose onClick={() => setShowModal(false)} size={30} />
+                </div>
+                <div className="flex-1 overflow-y-auto mt-2">
+                  <ProductDetailsPage />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* زرار اليمين */}
@@ -377,7 +375,7 @@ function Fandv() {
           </div>
         </div>
 
-        {/* ✅ المنتجات */}
+        {/*  المنتجات */}
         <div className="lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {fandvProducts.map((product) => (
             <div
@@ -445,7 +443,7 @@ function Fandv() {
 }
 
 
-// 👇 بانر إضافي (Responsive + Centered Content)
+//  بانر إضافي (Responsive + Centered Content)
 const PromoBanner = () => {
   return (
     <section
@@ -694,7 +692,7 @@ function ThreeImagesSection() {
 
 function BannerWithCardsSimple() {
   //const cards = Array.from({ length: 8 });
-  const { categories  } = useHomeContext();
+  const { categories } = useHomeContext();
   const [firstCategory, ...restOfCategories] = categories;
   return (
     <section className="w-[90%] md:w-[80%] lg:w-[70%] mx-auto py-8">

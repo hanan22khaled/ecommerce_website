@@ -48,8 +48,8 @@ function Header() {
       </div>
 
       {/* Second Part */}
-      <div className="sec-part flex justify-between items-center px-4 py-1">
-        <div className="left-sec-part">
+      <div className="sec-part flex justify-center items-center px-4 py-1">
+        <div className="left-sec-part space-x-1">
           <Link to="/about">About Us</Link>
           <Link to="#">Compare</Link>
           <Link to="#">Wishlist</Link>
@@ -176,7 +176,7 @@ function Header() {
       </div>
 
       {/* Fourth Part */}
-      <div className="fourth-part flex flex-row items-center justify-between w-full px-52 py-2 shadow-md">
+      <div className="fourth-part flex flex-row items-center justify-center  w-full  py-2 shadow-md">
         {/* All Categories */}
         <Menu as="div" className="relative inline-block hidden min-[891px]:block">
           <MenuButton className="inline-flex items-center justify-center gap-x-1 px-4 py-2 text-xs font-medium text-white bg-[#35AFA0] rounded-2xl border-none outline-none">
@@ -193,7 +193,7 @@ function Header() {
         </Menu>
 
         {/* Desktop Links */}
-        <div className="hidden min-[891px]:flex items-center gap-3">
+        <div className="hidden dist min-[891px]:flex items-center gap-2">
           {links.map((link) =>
             link.dropdown ? (
               <Menu as="div" key={link.name} className="relative inline-block">
