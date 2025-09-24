@@ -3,56 +3,16 @@ import { IoClose } from "react-icons/io5";
 import { ShopContext } from "../context/ShopContext";
 import ProductDetailsPage from "../components/ProductDetailsPage";
 import { useProductsDetails } from "../context/ProductDetailsContext";
-import { doc, getDoc, updateDoc } from "firebase/firestore";
-import { db } from "../firebase"; // غيّري المسار حسب مشروعك
 
 // زيادة الكمية
-const IncreaseQuantity = async (productId) => {
-  try {
-    const productRef = doc(db, "cart", productId);
-    const productSnap = await getDoc(productRef);
-
-    if (productSnap.exists()) {
-      const currentData = productSnap.data();
-      const currentQty = currentData.quantity || 0;
-
-      await updateDoc(productRef, {
-        quantity: currentQty + 1,
-      });
-    }
-  } catch (error) {
-    console.error("Error increasing quantity:", error);
-  }
-};
-
-// تقليل الكمية
-const ecreaseQuantity = async (productId) => {
-  try {
-    const productRef = doc(db, "cart", productId);
-    const productSnap = await getDoc(productRef);
-
-    if (productSnap.exists()) {
-      const currentData = productSnap.data();
-      const currentQty = currentData.quantity || 0;
-
-      if (currentQty > 0) {
-        await updateDoc(productRef, {
-          quantity: currentQty - 1,
-        });
-      }
-    }
-  } catch (error) {
-    console.error("Error decreasing quantity:", error);
-  }
-};
 
 
 
 function ProductCard({ product }) {
   const { cart, increaseQuantity, decreaseQuantity } = useContext(ShopContext);
   const quantity = cart[product.id] || 0;
-      const { showModal ,setShowModal } = useProductsDetails();
-  
+  const { showModal, setShowModal } = useProductsDetails();
+
 
   return (
     <div className="bg-white rounded-xl shadow hover:shadow-lg p-6 relative flex flex-col  gap-5">
@@ -67,7 +27,7 @@ function ProductCard({ product }) {
           src={product.image}
           alt={product.title}
           className="w-full sm:w-40 h-40 object-contain mx-auto"
-           onClick={() => setShowModal(true)}
+          onClick={() => setShowModal(true)}
         />
       </div>
 
@@ -110,44 +70,43 @@ function ProductCard({ product }) {
           </span>
         </div>
 
-       <div className="flex items-center justify-center mt-auto">
-  <button
-    onClick={() => decreaseQuantity(product.id)}
-    disabled={quantity === 0}
-    className={`w-8 h-9 px-2 flex items-center justify-center ${
-      quantity === 0
-        ? "bg-gray-100 text-black font-bold cursor-not-allowed rounded-l-full"
-        : "bg-gray-200 text-black font-bold hover:bg-gray-300 rounded-l-full"
-    }`}
-  >
-    −
-  </button>
+        <div className="flex items-center justify-center mt-auto">
+          <button
+            onClick={() => decreaseQuantity(product.id,product)}
+            disabled={quantity === 0}
+            className={`w-8 h-9 px-2 flex items-center justify-center ${quantity === 0
+                ? "bg-gray-100 text-black font-bold cursor-not-allowed rounded-l-full"
+                : "bg-gray-200 text-black font-bold hover:bg-gray-300 rounded-l-full"
+              }`}
+          >
+            −
+          </button>
 
-  <span className="w-16 sm:w-20 h-9 text-center font-semibold border-t border-b p-1 border-gray-200">
-    {quantity}
-  </span>
+          <span className="w-16 sm:w-20 h-9 text-center font-semibold border-t border-b p-1 border-gray-200">
+            {quantity}
+          </span>
 
-  <button
-    onClick={() => increaseQuantity(product.id)}
-    className="w-8 h-9 px-2 flex items-center justify-center bg-yellow-400 text-black font-bold hover:bg-yellow-300 rounded-r-full"
-  >
-    +
-  </button>
-</div>
+          <button
+            onClick={() => increaseQuantity(product.id, product)}
+            className="w-8 h-9 px-2 flex items-center justify-center bg-yellow-400 text-black font-bold hover:bg-yellow-300 rounded-r-full"
+          >
+            +
+          </button>
+        </div>
 
       </div>
       {showModal && (
-                     <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
-                         <div onClick={(e) => e.stopPropagation()} className="bg-white w-full h-full lg:w-[50%] md:h-[99%] p-2 relative flex flex-col rounded-lg">
-                             <div className="absolute top-1 right-1 cursor-pointer  z-10">
-                                 <IoClose onClick={() => setShowModal(false)} size={30} />
-                             </div>
-                             <div className="flex-1 overflow-y-auto mt-2">
-                                 <ProductDetailsPage />
-                             </div>
-                         </div>
-                     </div>
-                 )}
+        <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
+          <div onClick={(e) => e.stopPropagation()} className="bg-white w-full h-full lg:w-[50%] md:h-[99%] p-2 relative flex flex-col rounded-lg">
+            <div className="absolute top-1 right-1 cursor-pointer  z-10">
+              <IoClose onClick={() => setShowModal(false)} size={30} />
+            </div>
+            <div className="flex-1 overflow-y-auto mt-2">
+              <ProductDetailsPage />
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

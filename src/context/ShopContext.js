@@ -1,6 +1,8 @@
 import { createContext, useEffect, useMemo, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+
 
 export const ShopContext = createContext();
 
@@ -90,10 +92,41 @@ export const ShopProvider = ({ children }) => {
   const currentProducts = filteredProducts.slice(startIndex, endIndex);
 
   // cart functions
-  const increaseQuantity = (id) =>
-    setCart((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+  // const increaseQuantity = (id) =>
+  //   setCart((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
 
-  const decreaseQuantity = (id) =>
+  // const decreaseQuantity = (id) =>
+  //   setCart((prev) => {
+  //     if (!prev[id]) return prev;
+  //     const copy = { ...prev };
+  //     copy[id] = copy[id] - 1;
+  //     if (copy[id] <= 0) delete copy[id];
+  //     return copy;
+  //   });
+
+const increaseQuantity = async (id) => {
+  setCart((prev) => ({ ...prev, [id]: (prev[id] || 0) + 1 }));
+
+  try {
+    const productRef = doc(db, "products", id);
+    const productSnap = await getDoc(productRef);
+
+    if (productSnap.exists()) {
+      const currentData = productSnap.data();
+      const currentQty = currentData.quantity || 0;
+
+      await updateDoc(productRef, {
+        quantity: currentQty + 1,
+      });
+    }
+  } catch (error) {
+    console.error("Error increasing quantity:", error);
+  }
+};
+
+// تقليل الكمية
+const decreaseQuantity = async (id) => {
+  
     setCart((prev) => {
       if (!prev[id]) return prev;
       const copy = { ...prev };
@@ -101,6 +134,28 @@ export const ShopProvider = ({ children }) => {
       if (copy[id] <= 0) delete copy[id];
       return copy;
     });
+
+  try {
+    const productRef = doc(db, "products", id);
+    const productSnap = await getDoc(productRef);
+
+    if (productSnap.exists()) {
+      const currentData = productSnap.data();
+      const currentQty = currentData.quantity || 0;
+
+      if (currentQty > 0) {
+        await updateDoc(productRef, {
+          quantity: currentQty - 1,
+        });
+      }
+    }
+  } catch (error) {
+    console.error("Error decreasing quantity:", error);
+  }
+};
+
+
+
 
   return (
     <ShopContext.Provider
