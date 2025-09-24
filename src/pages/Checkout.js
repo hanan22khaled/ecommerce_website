@@ -20,7 +20,7 @@ const CheckoutPage = () => {
 
 
     return (
-        <div className='flex flex-col lg:flex-row justify-center mt-32'>
+        <div className='flex flex-col lg:flex-row justify-center mt-20 gap-12' >
             
             
           

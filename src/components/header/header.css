@@ -31,7 +31,7 @@
 @media(max-width:480px){
      .sec-part{
           height: 100px;
-          padding: 0px 15%;
+          padding: 0px 15%!important;
           text-align: center;
      }
      .left-sec-part {

@@ -55,7 +55,7 @@ function Checkout() {
 
   return (
     <form 
-      className="bg-white p-4 sm:p-6 rounded-md shadow"
+      className="bg-white p-6 sm:p-6 "
       onSubmit={handleSubmit}
     >
       {/* ✅ عنوان و لينك تسجيل الدخول */}

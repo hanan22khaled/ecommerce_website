@@ -176,7 +176,7 @@ function Header() {
       </div>
 
       {/* Fourth Part */}
-      <div className="fourth-part flex items-center justify-between w-full px-52 py-2 shadow-xl">
+      <div className="fourth-part flex flex-row items-center justify-between w-full px-52 py-2 shadow-md">
         {/* All Categories */}
         <Menu as="div" className="relative inline-block hidden min-[891px]:block">
           <MenuButton className="inline-flex items-center justify-center gap-x-1 px-4 py-2 text-xs font-medium text-white bg-[#35AFA0] rounded-2xl border-none outline-none">
