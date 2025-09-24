@@ -1,13 +1,33 @@
 import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-
 import ProductDetailsPage from "../../components/ProductDetailsPage";
-
 import { useProductsDetails } from "../../context/ProductDetailsContext";
 import "../home/home.css"
+import { useHomeContext } from "../../context/HomeContext";
+import img1 from '../../assets/homeImages/bacola-banner-05.jpg.png'
+import img2 from '../../assets/homeImages/home-banner-15.jpg.png'
+import img3 from '../../assets/homeImages/bacola-banner-06.jpg.png'
+import img5 from '../../assets/homeImages/category-banner-2.jpg.png'
+
+
+//بانر أساسي 
+import slider1 from '../../assets/homeImages/slider-image-8.jpg.png'
+import slider2 from '../../assets/homeImages/sidebar-banner.gif.png'
+import slider3 from '../../assets/homeImages/home-banner-15.jpg.png'
+import slider4 from '../../assets/homeImages/home-banner-16.jpg.png'
 
 const HomePage = () => {
+
+  const { loading, error } = useHomeContext()
+  //  عرض حالة التحميل أو الخطأ
+  if (loading) {
+    return <div className="text-center py-10">Loading products...</div>;
+  }
+  if (error) {
+    return <div className="text-center py-10 text-red-500">{error}</div>;
+  }
+
   return (
     <main>
       <div className="mx-auto w-full">
@@ -23,7 +43,7 @@ const HomePage = () => {
           {/* 🔵 بانر كبير (ياخد ثلثين في اللاب) */}
           <div className="col-span-1 md:col-span-2 lg:col-span-2 relative rounded-lg overflow-hidden">
             <img
-              src="https://picsum.photos/800/500?random=2"
+              src={slider1}
               alt="Promo Main"
               className="w-full h-[250px] md:h-[350px] lg:h-[400px] object-cover"
             />
@@ -57,7 +77,7 @@ const HomePage = () => {
           {/* 🟠 بانر يمين (ياخد تلت في اللاب) */}
           <div className="col-span-1 md:col-span-1 lg:col-span-1 relative rounded-lg overflow-hidden">
             <img
-              src="https://picsum.photos/400/500?random=1"
+              src={slider2}
               alt="Promo Right"
               className="w-full h-[250px] md:h-[400px] object-cover"
             />
@@ -67,7 +87,7 @@ const HomePage = () => {
           <div className="col-span-1 md:col-span-2 lg:col-span-3 grid grid-cols-2 sm:grid-cols-2 gap-4">
             <div className="relative rounded-lg overflow-hidden">
               <img
-                src="https://picsum.photos/400/250?random=3"
+                src={slider3}
                 alt="Promo Left Bottom"
                 className="w-full h-[200px] md:h-[220px] object-cover"
               />
@@ -82,7 +102,7 @@ const HomePage = () => {
 
             <div className="relative rounded-lg overflow-hidden">
               <img
-                src="https://picsum.photos/400/250?random=4"
+                src={slider4}
                 alt="Promo Right Bottom"
                 className="w-full h-[200px] md:h-[220px] object-cover"
               />
@@ -114,6 +134,9 @@ const HomePage = () => {
 // 👇 كومبوننت Best Sellers
 function BestSellers() {
   const scrollRef = React.useRef(null);
+  // useHomeContext لجلب قائمة المنتجات
+  const { bestSellers } = useHomeContext();
+  const { showModal, setShowModal } = useProductsDetails();
 
   const scroll = (direction) => {
     if (scrollRef.current) {
@@ -124,7 +147,6 @@ function BestSellers() {
       });
     }
   };
-      const { showModal ,setShowModal } = useProductsDetails();
 
   return (
     <section className="mx-auto py-8 relative w-[90%] md:w-[80%] lg:w-[70%] rounded-md">
@@ -155,61 +177,82 @@ function BestSellers() {
         <div
           ref={scrollRef}
           className="flex overflow-x-auto scrollbar-hide scroll-smooth pb-8 gap-4"
-          onClick={() => setShowModal(true)}
-        >
-          {Array.from({ length: 10 }).map((_, i) => (
+
+         >
+          {bestSellers.map((product) => (
             <div
-              key={i}
+              key={product.id}
               className="border p-6 shadow-sm hover:shadow-md transition shrink-0 rounded-md"
               style={{ minWidth: "20%" }}
             >
-              <div className="relative">
+              <div className="relative" >
                 <img
-                  src={`https://picsum.photos/200/200?random=${i + 1}`}
-                  alt={`Product ${i + 1}`}
+                  src={product.image}
+                  alt={product.title}
                   className="w-full h-36 object-contain"
                 />
                 <span className="absolute top-2 left-2 bg-teal-500 text-white text-[10px] px-2 py-0.5 rounded">
-                  {10 + i}%
+                  {product.discount}%
                 </span>
+
               </div>
 
               <h3 className="text-xs font-medium mt-3">
-                Product {i + 1} Name Example
+                {product.title}
               </h3>
-              <p className="text-green-600 text-[10px] font-semibold mt-3">
-                IN STOCK
-              </p>
-              <p className="text-gray-500 text-[10px] pt-4">
-                <span className="text-yellow-400">★ ★ ★ ★ ☆</span> {i + 1} review
-              </p>
 
-              <div className="flex items-center gap-2 mt-2">
-                <span className="line-through text-gray-400 text-xs">
-                  ${(10 + i) * 2}.00
-                </span>
-                <span className="text-red-500 font-bold text-sm">
-                  ${(10 + i) * 1.5}
+              {product.stock ? (
+                <p className="text-green-500 text-xs font-bold mb-1">IN STOCK</p>
+              ) : (
+                <p className="text-red-600 text-sm font-bold mb-1">OUT OF STOCK</p>
+              )}
+
+              <div className="flex items-center mb-3">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill={i < (product.rating || 0) ? "gold" : "lightgray"}
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4"
+                  >
+                    <path d="M12 .587l3.668 7.431L24 9.75l-6 5.847L19.335 24 12 20.013 4.665 24 6 15.597 0 9.75l8.332-1.732z" />
+                  </svg>
+                ))}
+                <span className="text-black px-2">
+                  ({product.reviews || 0}) <span className="px-1">reviews</span>
                 </span>
               </div>
 
-              <button className="mt-3 w-full bg-yellow-400 hover:bg-yellow-500 text-black text-xs font-medium py-1.5 rounded-2xl">
+
+              <div className="flex items-center gap-2 mb-2">
+                {product.oldPrice && (
+                  <span className="text-gray-400 line-through font-semibold text-base">
+                    ${parseFloat(product.oldPrice).toFixed(2)}
+                  </span>
+                )}
+                <span className="text-red-600 text-lg font-bold">
+                  ${parseFloat(product.newPrice).toFixed(2)}
+                </span>
+              </div>
+
+              <button onClick={() => setShowModal(true)} className="mt-3 w-full bg-yellow-400 hover:bg-yellow-500 text-black text-xs font-medium py-1.5 rounded-2xl">
                 Add to cart
               </button>
             </div>
           ))}
-          {showModal && (
-                     <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
-                         <div onClick={(e) => e.stopPropagation()} className="bg-white w-full md:w-[75%] lg:w-[50%] h-full md:h-[99%] p-2 relative flex flex-col rounded-lg">
-                             <div className="absolute top-1 right-1 cursor-pointer  z-10">
-                                 <IoClose onClick={() => setShowModal(false)} size={30} />
-                             </div>
-                             <div className="flex-1 overflow-y-auto mt-2">
-                                 <ProductDetailsPage />
-                             </div>
-                         </div>
-                     </div>
-                 )}
+                {showModal && (
+                  <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
+                    <div onClick={(e) => e.stopPropagation()} className="bg-white w-full md:w-[75%] lg:w-[50%] h-full md:h-[99%] p-2 relative flex flex-col rounded-lg">
+                      <div className="absolute top-1 right-1 cursor-pointer  z-10">
+                        <IoClose onClick={() => setShowModal(false)} size={30} />
+                      </div>
+                      <div className="flex-1 overflow-y-auto mt-2">
+                        <ProductDetailsPage />
+                      </div>
+                    </div>
+                  </div>
+                )}
         </div>
 
         {/* زرار اليمين */}
@@ -263,7 +306,10 @@ const Banner = () => {
 
 
 function Fandv() {
-  const products = Array.from({ length: 8 });
+
+  const { bestSellers } = useHomeContext();
+  const fandvProducts = bestSellers.filter(product => product.category === "Fruits & Vegetables");
+  const { showModal, setShowModal } = useProductsDetails();
 
   return (
     <section className="mx-auto py-8 relative w-[90%] lg:w-[70%]">
@@ -286,7 +332,7 @@ function Fandv() {
           {/* صورة + النص */}
           <div className="relative h-48 md:h-56">
             <img
-              src="https://picsum.photos/300/400?grayscale"
+              src={img5}
               alt="Offer Banner"
               className="w-full h-full object-cover"
             />
@@ -333,42 +379,61 @@ function Fandv() {
 
         {/* ✅ المنتجات */}
         <div className="lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {products.map((_, i) => (
+          {fandvProducts.map((product) => (
             <div
-              key={i}
+              key={product.id}
               className="border p-3 shadow-sm hover:shadow-md transition bg-white rounded-md"
             >
               <div className="relative">
                 <img
-                  src={`https://picsum.photos/200/200?random=${i + 1}`}
-                  alt={`Product ${i + 1}`}
+                  src={product.image}
+                  alt={product.title}
                   className="w-full h-32 object-contain"
                 />
                 <span className="absolute top-2 left-2 bg-teal-500 text-white text-[10px] px-2 py-0.5 rounded">
-                  {10 + i}%
+                  {product.discount}%
                 </span>
               </div>
 
               <h3 className="text-xs font-medium mt-3">
-                Product {i + 1} Name Example
+                {product.title}
               </h3>
-              <p className="text-green-600 text-[10px] font-semibold mt-2">
-                {i + 85} IN STOCK
-              </p>
-              <p className="text-gray-500 text-[10px] mt-1">
-                <span className="text-yellow-400">★ ★ ★ ★ ☆</span> {i + 1} review
-              </p>
-
-              <div className="flex items-center gap-2 mt-2">
-                <span className="line-through text-gray-400 text-xs">
-                  ${(10 + i) * 2}.00
-                </span>
-                <span className="text-red-500 font-bold text-sm">
-                  ${(10 + i) * 1.5}
+              {product.stock ? (
+                <p className="text-green-500 text-xs font-bold mb-1">IN STOCK</p>
+              ) : (
+                <p className="text-red-600 text-sm font-bold mb-1">OUT OF STOCK</p>
+              )}
+              <div className="flex items-center mb-3">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill={i < (product.rating || 0) ? "gold" : "lightgray"}
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4"
+                  >
+                    <path d="M12 .587l3.668 7.431L24 9.75l-6 5.847L19.335 24 12 20.013 4.665 24 6 15.597 0 9.75l8.332-1.732z" />
+                  </svg>
+                ))}
+                <span className="text-black px-2">
+                  ({product.reviews || 0}) <span className="px-1">reviews</span>
                 </span>
               </div>
 
-              <button className="mt-3 w-full bg-white border-2 border-solid border-green-600 hover:bg-green-600 hover:text-white text-green-600 text-xs font-medium py-1.5 rounded-2xl">
+              <div className="flex items-center gap-2 mb-2">
+                {product.oldPrice && (
+                  <span className="text-gray-400 line-through font-semibold text-base">
+                    ${parseFloat(product.oldPrice).toFixed(2)}
+                  </span>
+                )}
+                <span className="text-red-600 text-lg font-bold">
+                  ${parseFloat(product.newPrice).toFixed(2)}
+                </span>
+              </div>
+
+
+
+              <button onClick={() => setShowModal(true)} className="mt-3 w-full bg-white border-2 border-solid border-green-600 hover:bg-green-600 hover:text-white text-green-600 text-xs font-medium py-1.5 rounded-2xl">
                 Add to cart
               </button>
             </div>
@@ -434,7 +499,10 @@ const PromoBanner = () => {
 
 
 function BreakfastDairy() {
-  const products = Array.from({ length: 8 });
+  const { bestSellers } = useHomeContext();
+
+  // تصفية المنتجات لفئة "Breakfast & Dairy"
+  const breakfastDairyProducts = bestSellers.filter(product => product.category === "Breakfast & Dairy");
 
   return (
     <section className="mx-auto py-8 relative w-[90%] lg:w-[70%]">
@@ -452,12 +520,12 @@ function BreakfastDairy() {
       </div>
 
       <div className="flex flex-col lg:flex-row gap-6">
-        {/* ✅ البانر الجانبي */}
+        {/*  البانر الجانبي */}
         <div className="lg:w-1/3 bg-green-100 shadow rounded-md overflow-hidden relative flex flex-col">
           {/* الصورة الخلفية */}
           <div className="relative h-48 md:h-56">
             <img
-              src="https://picsum.photos/300/400?grayscale"
+              src={img5}
               alt="Offer Banner"
               className="w-full h-full object-cover"
             />
@@ -466,7 +534,7 @@ function BreakfastDairy() {
             <div className="absolute inset-0 flex flex-col justify-center items-start px-6 py-4 bg-black/20 text-white space-y-1">
               <h4 className="text-sm md:text-md">Weekly Discounts on</h4>
               <h2 className="text-md md:text-lg font-bold leading-snug">
-           Breakfast and Dairy <br /> the best
+                Breakfast and Dairy <br /> the best
               </h2>
               <h4 className="text-xs">Bacola Weekend Discount</h4>
               <button className="mt-2 px-4 py-1.5 bg-sky-800 text-white text-xs rounded-full hover:bg-sky-600 transition">
@@ -505,40 +573,60 @@ function BreakfastDairy() {
 
         {/* ✅ المنتجات */}
         <div className="lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
-          {products.map((_, i) => (
+          {breakfastDairyProducts.map((product) => (
             <div
-              key={i}
+              key={product.id}
               className="border p-3 shadow-sm hover:shadow-md transition bg-white rounded-md"
             >
               <div className="relative">
                 <img
-                  src={`https://picsum.photos/200/200?random=${i + 1}`}
-                  alt={`Product ${i + 1}`}
+                  src={product.image}
+                  alt={product.title}
                   className="w-full h-32 object-contain"
                 />
-                <span className="absolute top-2 left-2 bg-teal-500 text-white text-[10px] px-2 py-0.5 rounded">
-                  {products.title}%
-                </span>
+                {product.discount && (
+                  <span className="absolute top-2 left-2 bg-teal-500 text-white text-[10px] px-2 py-0.5 rounded">
+                    {product.discount}%
+                  </span>
+                )}
               </div>
 
               <h3 className="text-xs font-medium mt-3">
-                Product {i + 1} Name Example
+                {product.title}
               </h3>
-              <p className="text-green-600 text-[10px] font-semibold mt-2">
-                IN STOCK
-              </p>
-              <p className="text-gray-500 text-[10px] mt-1">
-                <span className="text-yellow-400">★ ★ ★ ★ ☆</span> {i + 1} review
-              </p>
-
-              <div className="flex items-center gap-2 mt-2">
-                <span className="line-through text-gray-400 text-xs">
-                  ${(10 + i) * 2}.00
-                </span>
-                <span className="text-red-500 font-bold text-sm">
-                  ${(10 + i) * 1.5}
+              {product.stock ? (
+                <p className="text-green-500 text-xs font-bold mb-1">IN STOCK</p>
+              ) : (
+                <p className="text-red-600 text-sm font-bold mb-1">OUT OF STOCK</p>
+              )}
+              <div className="flex items-center mb-3">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <svg
+                    key={i}
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill={i < (product.rating || 0) ? "gold" : "lightgray"}
+                    viewBox="0 0 24 24"
+                    className="w-4 h-4"
+                  >
+                    <path d="M12 .587l3.668 7.431L24 9.75l-6 5.847L19.335 24 12 20.013 4.665 24 6 15.597 0 9.75l8.332-1.732z" />
+                  </svg>
+                ))}
+                <span className="text-black px-2">
+                  ({product.reviews || 0}) <span className="px-1">reviews</span>
                 </span>
               </div>
+              <div className="flex items-center gap-2 mb-2">
+                {product.oldPrice && (
+                  <span className="text-gray-400 line-through font-semibold text-base">
+                    ${parseFloat(product.oldPrice).toFixed(2)}
+                  </span>
+                )}
+                <span className="text-red-600 text-lg font-bold">
+                  ${parseFloat(product.newPrice).toFixed(2)}
+                </span>
+              </div>
+
+
             </div>
           ))}
         </div>
@@ -559,11 +647,11 @@ function ThreeImagesSection() {
           grid-cols-1 sm:grid-cols-2 lg:grid-cols-3
         "
       >
-        {[1, 2, 3].map((num) => (
+        {[img1, img2, img3].map((num) => (
           <div key={num} className="relative rounded-md overflow-hidden shadow">
             {/* ✅ الصورة */}
             <img
-              src={`https://picsum.photos/400/300?random=${num}`}
+              src={num}
               alt={`Promo ${num}`}
               className="w-full h-60 md:h-72 object-cover"
             />
@@ -581,7 +669,7 @@ function ThreeImagesSection() {
               </h2>
 
               <h4 className="text-xs md:text-sm text-gray-200">
-              Eat one every day
+                Eat one every day
               </h4>
 
               <button
@@ -605,21 +693,22 @@ function ThreeImagesSection() {
 
 
 function BannerWithCardsSimple() {
-  const cards = Array.from({ length: 8 });
-
+  //const cards = Array.from({ length: 8 });
+  const { categories  } = useHomeContext();
+  const [firstCategory, ...restOfCategories] = categories;
   return (
     <section className="w-[90%] md:w-[80%] lg:w-[70%] mx-auto py-8">
       <div className="flex flex-col lg:flex-row gap-4">
         {/* 🔹 البانر */}
         <div className="lg:w-1/4 w-full flex flex-col items-center bg-white shadow rounded-md p-3">
           <img
-            src="https://picsum.photos/400/600"
-            alt="Banner"
+            src={firstCategory.image}
+            alt={firstCategory.title}
             className="w-full h-64 object-cover rounded-t-md"
           />
-          <h2 className="text-lg font-bold p-2 text-center">Special Banner</h2>
+          <h2 className="text-lg font-bold p-2 text-center">{firstCategory.title}</h2>
           <h4 className="block text-xs md:text-sm text-gray-400 pt-2 text-center">
-            Only this week
+            {firstCategory.items}
           </h4>
         </div>
 
@@ -633,24 +722,24 @@ function BannerWithCardsSimple() {
             grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4
           "
         >
-          {cards.map((_, i) => (
+          {restOfCategories.map((category) => (
             <div
-              key={i}
+              key={category.id}
               className="flex items-center bg-gray-50 p-3 shadow hover:shadow-md transition rounded-md"
             >
               {/* ✅ الصورة يسار */}
               <img
-                src={`https://picsum.photos/100/100?random=${i + 1}`}
-                alt={`Card ${i + 1}`}
+                src={category.image}
+                alt={category.title}
                 className="w-20 h-20 object-cover mr-3 rounded-md"
               />
               {/* ✅ النص يمين */}
               <div className="flex flex-col">
                 <h3 className="text-sm font-semibold text-gray-800">
-                  Card Title {i + 1}
+                  {category.title}
                 </h3>
                 <h4 className="block text-xs md:text-sm text-gray-400 pt-2">
-                  Only this week
+                  {category.items}
                 </h4>
               </div>
             </div>
