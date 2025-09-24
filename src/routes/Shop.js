@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebase";
 
-import Sidebar from "../components/Sidebar";
+import ShopSidebar from "../components/ShopSidebar";
 import ProductGrid from "../components/ProductGrid";
 import Pagination from "../components/Pagination";
 
@@ -31,7 +31,7 @@ function App() {
       {/* Main Layout */}
       <div className="container mx-auto flex flex-col md:flex-row gap-6 p-6">
         {/* Sidebar */}
-        <Sidebar />
+        <ShopSidebar />
 
         {/* شبكة المنتجات + Pagination */}
         <div className="flex-1">

@@ -1,0 +1,71 @@
+{
+  "product_details": {
+    "id": "prod_12345",
+    "product_name": "SkinnyPop Popcorn SkinnyPack Original",
+    "new_price": "25.00",
+    "old_price": "15.00",
+    "available_in": ["small", "medium", "large"],
+    "image_urls": [
+      "https://i.ibb.co/JWJDvD5B/cd78e317b3d8dd431af9a56e8901c599d3473f66.png",
+      "https://i.ibb.co/HpPPpRp4/05bec00b89c29cd467594b30d96c7723607ad3a6.png",
+      "https://i.ibb.co/0y5tWznQ/5047a468649c89e9e89cbc7d2f310349ecad12c2.png"
+    ],
+    "tags": ["Fast Food", "Organic Corn", "Flavoured", "Dry Food"],
+    "description": "Sugar, Unbleached Enriched Flour (Wheat Flour, Niacin, Reduced Iron, Thiamine Mononitrate Vitamin B1, Riboflavin Vitamin B2, Folic Acid), Palm and/or Canola Oil, Cocoa (Processed with Alkali), High Fructose Corn Syrup, Leavening (Baking Soda and/or Calcium Phosphate), Cornstarch, Salt,..."
+  },
+  "related_products": [
+    {
+      "id": "prod_12346",
+      "name": "Fresh Green Leaf Lettuce",
+      "new_price": "$2.64",
+      "old_price": "$2.74",
+      "on_sale": true,
+      "image_url": "https://i.ibb.co/Hfsb82kd/d49222c20608c3f347100dd9e48a447d65718713.png",
+      "quantity": "1 each"
+    },
+    {
+      "id": "prod_12347",
+      "name": "Leafy Romaine Mixed Lettuce",
+      "new_price": "$2.50",
+      "old_price": "$2.74",
+      "on_sale": true,
+      "image_url": "https://i.ibb.co/tM88HmW7/02744b40ab4a49d9a02c96582c28db2268051d37.png",
+      "quantity": "1 each"
+    },
+    {
+      "id": "prod_12348",
+      "name": "Fresh Express Iceberg Garden Salad Blend",
+      "new_price": "$40.00",
+      "old_price": "$25.00",
+      "on_sale": false,
+      "image_url": "https://i.ibb.co/M5pZdRBJ/a0baffac384ec99372c4ded0bc3d0e5669f62f6f.png",
+      "quantity": "1 Bag"
+    },
+    {
+      "id": "prod_12349",
+      "name": "Organic Girl Lettuce",
+      "new_price": "$1.50",
+      "on_sale": false,
+      "image_url": "https://i.ibb.co/kgsJ470M/10889f812c8e6628dba0c9aa143be09e27730c45.png",
+      "quantity": "1 Bag"
+    },
+    {
+      "id": "prod_12350",
+      "name": "Organic Spring Mix",
+      "new_price": "$2.60",
+      "old_price": "$3.00",
+      "on_sale": true,
+      "image_url": "https://i.ibb.co/dYMmQk1/b95a7ca699af31771f5cf3fa7244d387098f527b.png",
+      "quantity": "1 each"
+    },
+    {
+      "id": "prod_12351",
+      "name": "Organic Firm Head Lettuce",
+      "new_price": "$5.00",
+      "old_price": "$3.00",
+      "on_sale": false,
+      "image_url": "https://i.ibb.co/JRMGyjhB/7028d73a48fd1bdb951c5bce613bff076466b67e.png",
+      "quantity": "1 each"
+    }
+  ]
+}

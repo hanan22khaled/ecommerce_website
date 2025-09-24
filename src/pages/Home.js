@@ -1,5 +1,12 @@
 import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+
+import ProductDetailsPage from "../components/ProductDetailsPage";
+
+import { useProductsDetails } from "../context/ProductDetailsContext";
+
+
 const HomePage = () => {
   return (
     <main>
@@ -117,6 +124,7 @@ function BestSellers() {
       });
     }
   };
+      const { showModal ,setShowModal } = useProductsDetails();
 
   return (
     <section className="mx-auto py-8 relative w-[90%] md:w-[80%] lg:w-[70%] rounded-md">
@@ -147,6 +155,7 @@ function BestSellers() {
         <div
           ref={scrollRef}
           className="flex overflow-x-auto scrollbar-hide scroll-smooth pb-8 gap-4"
+          onClick={() => setShowModal(true)}
         >
           {Array.from({ length: 10 }).map((_, i) => (
             <div
@@ -189,6 +198,18 @@ function BestSellers() {
               </button>
             </div>
           ))}
+          {showModal && (
+                     <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
+                         <div onClick={(e) => e.stopPropagation()} className="bg-white w-full h-full lg:w-[50%] md:h-[99%] p-2 relative flex flex-col rounded-lg">
+                             <div className="absolute top-1 right-1 cursor-pointer  z-10">
+                                 <IoClose onClick={() => setShowModal(false)} size={30} />
+                             </div>
+                             <div className="flex-1 overflow-y-auto mt-2">
+                                 <ProductDetailsPage />
+                             </div>
+                         </div>
+                     </div>
+                 )}
         </div>
 
         {/* زرار اليمين */}

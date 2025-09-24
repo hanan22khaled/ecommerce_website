@@ -1,12 +1,16 @@
 import { useContext } from "react";
+import { IoClose } from "react-icons/io5";
 import { ShopContext } from "../context/ShopContext";
-
+import ProductDetailsPage from "../components/ProductDetailsPage";
+import { useProductsDetails } from "../context/ProductDetailsContext";
 function ProductCard({ product }) {
   const { cart, increaseQuantity, decreaseQuantity } = useContext(ShopContext);
   const quantity = cart[product.id] || 0;
+      const { showModal ,setShowModal } = useProductsDetails();
+  
 
   return (
-    <div className="bg-white rounded-xl shadow hover:shadow-lg p-6 relative flex flex-col  gap-5">
+    <div onClick={() => setShowModal(true)} className="bg-white rounded-xl shadow hover:shadow-lg p-6 relative flex flex-col  gap-5">
       {product.discount && (
         <span className="absolute top-2 left-4 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded">
           {product.discount}%
@@ -86,6 +90,18 @@ function ProductCard({ product }) {
 </div>
 
       </div>
+      {showModal && (
+                     <div onClick={() => setShowModal(false)} className="fixed inset-0 flex items-center justify-center bg-gray-600 bg-opacity-50 z-50 p-2">
+                         <div onClick={(e) => e.stopPropagation()} className="bg-white w-full h-full lg:w-[50%] md:h-[99%] p-2 relative flex flex-col rounded-lg">
+                             <div className="absolute top-1 right-1 cursor-pointer  z-10">
+                                 <IoClose onClick={() => setShowModal(false)} size={30} />
+                             </div>
+                             <div className="flex-1 overflow-y-auto mt-2">
+                                 <ProductDetailsPage />
+                             </div>
+                         </div>
+                     </div>
+                 )}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import React, { useState } from "react"; 
 import "./footer.css";
-import { saveEmailToFirebase } from "../components/saveEmail";
+import { saveEmailToFirebase } from "../../components/saveEmail";
 
 function Footer(){
       const [email, setEmail] = useState(""); 

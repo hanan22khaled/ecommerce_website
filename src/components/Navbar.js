@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IoClose } from "react-icons/io5";
 import { Link } from "react-router-dom";
-import { useProductsDetails } from "../Contexts/ProductDetailsContext";
+import { useProductsDetails } from "../context/ProductDetailsContext";
 import ProductDetailsPage from "./ProductDetailsPage";
 
 

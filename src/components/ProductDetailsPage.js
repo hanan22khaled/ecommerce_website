@@ -5,8 +5,8 @@ import { FaShare } from 'react-icons/fa6'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import ProductCard from './ProductCard'
-import { useProductsDetails } from '../Contexts/ProductDetailsContext';
+import ProductCardDetails from '../components/ProductCardDetails'
+import { useProductsDetails } from '../context/ProductDetailsContext';
 import { IoChevronForward, IoChevronBack } from "react-icons/io5";
 
 // Custom arrow components for the slider
@@ -278,7 +278,7 @@ const ProductDetailsPage = () => {
                         {/* هنا المشكلة. لا يجب أن يكون هناك div بين العنوان و الـ Slider */}
                         <Slider {...settings}>
                             {products.map(product => (
-                                <ProductCard key={product.id} product={product} />
+                                <ProductCardDetails key={product.id} product={product} />
                             ))}
                         </Slider>
                     </div>
