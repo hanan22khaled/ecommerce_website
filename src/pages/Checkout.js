@@ -1,15 +1,9 @@
 import Checkout from "../components/Checkout";
 // Import images individually
-import img1 from "../assets/img1.png";
-import img2 from '../assets/img2.png';
-import img3 from '../assets/img3.png';
+
 import { useCheckout } from '../context/CheckoutContext';
 // Create a mapping object for your images
-const imageMap = {
-    '../../assets/images/img1.png': img1,
-    '../../assets/images/img2.png': img2,
-    '../../assets/images/img3.png': img3
-};
+
 
 const CheckoutPage = () => {
     // Access the items and summary from the imported data
@@ -33,13 +27,13 @@ const CheckoutPage = () => {
                     {cartItems.map((item, index) => (
                         <div key={index} className='flex flex-row  mb-4 items-center' >
                             <div className='relative'>
-                                <img className='w-23 h-20 border-1 border-gray-300 shadow-sm rounded-lg' src={imageMap[item.imagePath]} alt={item.name} />
+                                <img className='w-23 h-20 border-1 border-gray-300 shadow-sm rounded-lg' src={item.image} alt={item.title} />
                                 <div className='absolute -top-2 -right-2 p-2 w-6 h-6 bg-gray-500 text-white rounded-full flex items-center justify-center text-xs'>
                                     {item.quantity}
                                 </div>
                             </div>
                             <div className='flex flex-row w-full ml-6 justify-between items-center'>
-                                <h4 className='mr-32'>{item.name}</h4>
+                                <h4 className='mr-32'>{item.title}</h4>
                                 <p>${item.price.toFixed(2)}</p>
                             </div>
                         </div>

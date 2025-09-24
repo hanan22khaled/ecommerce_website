@@ -16,7 +16,7 @@ export const CheckoutProvider = ({ children }) => {
     useEffect(() => {
         const fetchCartItems = async () => {
             try {
-                const querySnapshot = await getDocs(collection(db, "cart"));
+                const querySnapshot = await getDocs(collection(db, "products"));
                 const items = querySnapshot.docs.map(doc => ({
                     id: doc.id, // ← document ID
                     ...doc.data()
