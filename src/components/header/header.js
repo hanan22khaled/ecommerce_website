@@ -13,9 +13,9 @@ function Header() {
   const links = [
     { name: "HOME", dropdown: true, href: "/" },
     { name: "SHOP", href: "/Shop" },
-    { name: "MEATS & SEAFOOD", icon: "fa-shrimp", href: "/meats" },
-    { name: "BAKERY", icon: "fa-cookie-bite", href: "/bakery" },
-    { name: "BEVERAGES", icon: "fa-mug-saucer", href: "/beverages" },
+    { name: "MEATS & SEAFOOD", icon: "fa-shrimp" },
+    { name: "BAKERY", icon: "fa-cookie-bite"  },
+    { name: "BEVERAGES", icon: "fa-mug-saucer" },
     { name: "BLOG", href: "/blog" },
     { name: "CONTACT", href: "/Contact" },
   ];

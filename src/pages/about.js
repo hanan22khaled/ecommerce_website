@@ -6,8 +6,7 @@ function About() {
 
     return (
         <>
-        <header className='header'></header>
-        <main className='about-main'>
+        <main className='about-main mt-20'>
             {/* first section .... */}
             <section>
             <div className='about-img'>

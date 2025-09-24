@@ -11,7 +11,6 @@ import PaginationComponent from '../components/PaginationComponent';
 function Blog() {
     return (
         <>
-        <header className='header'></header>
         <div className='main-section'>
             {/* Grid */}
             <div className='container-blog mx-auto px-4 py-6 grid grid-cols-1 lg:grid-cols-3 gap-8'>

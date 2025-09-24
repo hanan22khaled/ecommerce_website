@@ -3,6 +3,51 @@ import { IoClose } from "react-icons/io5";
 import { ShopContext } from "../context/ShopContext";
 import ProductDetailsPage from "../components/ProductDetailsPage";
 import { useProductsDetails } from "../context/ProductDetailsContext";
+import { doc, getDoc, updateDoc } from "firebase/firestore";
+import { db } from "../firebase"; // غيّري المسار حسب مشروعك
+
+// زيادة الكمية
+const increaseQuantity = async (productId) => {
+  try {
+    const productRef = doc(db, "cart", productId);
+    const productSnap = await getDoc(productRef);
+
+    if (productSnap.exists()) {
+      const currentData = productSnap.data();
+      const currentQty = currentData.quantity || 0;
+
+      await updateDoc(productRef, {
+        quantity: currentQty + 1,
+      });
+    }
+  } catch (error) {
+    console.error("Error increasing quantity:", error);
+  }
+};
+
+// تقليل الكمية
+const decreaseQuantity = async (productId) => {
+  try {
+    const productRef = doc(db, "cart", productId);
+    const productSnap = await getDoc(productRef);
+
+    if (productSnap.exists()) {
+      const currentData = productSnap.data();
+      const currentQty = currentData.quantity || 0;
+
+      if (currentQty > 0) {
+        await updateDoc(productRef, {
+          quantity: currentQty - 1,
+        });
+      }
+    }
+  } catch (error) {
+    console.error("Error decreasing quantity:", error);
+  }
+};
+
+
+
 function ProductCard({ product }) {
   const { cart, increaseQuantity, decreaseQuantity } = useContext(ShopContext);
   const quantity = cart[product.id] || 0;
