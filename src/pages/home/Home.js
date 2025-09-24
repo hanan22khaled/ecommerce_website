@@ -393,9 +393,11 @@ function Fandv() {
                 </span>
               </div>
 
-              <h3 className="text-xs font-medium mt-3">
-                {product.title}
-              </h3>
+              <div className="h-[20%]">
+                <h3 className="text-xs font-medium mt-3">
+                  {product.title}
+                </h3>
+              </div>
               {product.stock ? (
                 <p className="text-green-500 text-xs font-bold mb-1">IN STOCK</p>
               ) : (
@@ -418,7 +420,7 @@ function Fandv() {
                 </span>
               </div>
 
-              <div className="flex items-center gap-2 mb-2">
+              <div className="flex items-center gap-2 mb-2 ">
                 {product.oldPrice && (
                   <span className="text-gray-400 line-through font-semibold text-base">
                     ${parseFloat(product.oldPrice).toFixed(2)}
@@ -429,11 +431,11 @@ function Fandv() {
                 </span>
               </div>
 
-
-
               <button onClick={() => setShowModal(true)} className="mt-3 w-full bg-white border-2 border-solid border-green-600 hover:bg-green-600 hover:text-white text-green-600 text-xs font-medium py-1.5 rounded-2xl">
                 Add to cart
               </button>
+
+
             </div>
           ))}
         </div>
