@@ -1,5 +1,3 @@
-import React from 'react';
-import cartData from '../data/checkdata.json';
 import Checkout from "../components/Checkout";
 // Import images individually
 import img1 from "../assets/img1.png";

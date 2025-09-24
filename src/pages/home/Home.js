@@ -2,10 +2,10 @@ import React from "react";
 import { FaChevronLeft, FaChevronRight } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 
-import ProductDetailsPage from "../components/ProductDetailsPage";
+import ProductDetailsPage from "../../components/ProductDetailsPage";
 
-import { useProductsDetails } from "../context/ProductDetailsContext";
-
+import { useProductsDetails } from "../../context/ProductDetailsContext";
+import "../home/home.css"
 
 const HomePage = () => {
   return (

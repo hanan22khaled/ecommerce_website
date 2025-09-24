@@ -10,7 +10,7 @@ function ProductCard({ product }) {
   
 
   return (
-    <div onClick={() => setShowModal(true)} className="bg-white rounded-xl shadow hover:shadow-lg p-6 relative flex flex-col  gap-5">
+    <div className="bg-white rounded-xl shadow hover:shadow-lg p-6 relative flex flex-col  gap-5">
       {product.discount && (
         <span className="absolute top-2 left-4 bg-teal-500 text-white text-xs font-bold px-2 py-1 rounded">
           {product.discount}%
@@ -22,6 +22,7 @@ function ProductCard({ product }) {
           src={product.image}
           alt={product.title}
           className="w-full sm:w-40 h-40 object-contain mx-auto"
+           onClick={() => setShowModal(true)}
         />
       </div>
 

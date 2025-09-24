@@ -4,7 +4,7 @@ import Contact from "../src/routes/Contact";
 import Blog from "../src/pages/blog"
 import About from './pages/about'
 import Header from "./components/header/header"
-import Home from "../src/pages/Home"
+import Home from "./pages/home/Home"
 import Footer from "./pages/footer/footer"
 import Checkout from "./pages/Checkout";
 import "./App.css"
