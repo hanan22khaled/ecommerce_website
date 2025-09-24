@@ -378,6 +378,7 @@ function Fandv() {
         {/*  المنتجات */}
         <div className="lg:w-2/3 grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
           {fandvProducts.map((product) => (
+            
             <div
               key={product.id}
               className="border p-3 shadow-sm hover:shadow-md transition bg-white rounded-md"
@@ -393,7 +394,7 @@ function Fandv() {
                 </span>
               </div>
 
-              <div className="h-[20%]">
+              <div className="h-[10%]">
                 <h3 className="text-xs font-medium mt-3">
                   {product.title}
                 </h3>
@@ -500,6 +501,7 @@ const PromoBanner = () => {
 
 function BreakfastDairy() {
   const { bestSellers } = useHomeContext();
+  const { showModal, setShowModal } = useProductsDetails();
 
   // تصفية المنتجات لفئة "Breakfast & Dairy"
   const breakfastDairyProducts = bestSellers.filter(product => product.category === "Breakfast & Dairy");
@@ -590,10 +592,11 @@ function BreakfastDairy() {
                   </span>
                 )}
               </div>
-
-              <h3 className="text-xs font-medium mt-3">
-                {product.title}
-              </h3>
+              <div className="h-[10%]">
+                <h3 className="text-xs font-medium mt-3">
+                  {product.title}
+                </h3>
+              </div>
               {product.stock ? (
                 <p className="text-green-500 text-xs font-bold mb-1">IN STOCK</p>
               ) : (
@@ -625,6 +628,10 @@ function BreakfastDairy() {
                   ${parseFloat(product.newPrice).toFixed(2)}
                 </span>
               </div>
+              <button onClick={() => setShowModal(true)} className="mt-3 w-full bg-white border-2 border-solid border-green-600 hover:bg-green-600 hover:text-white text-green-600 text-xs font-medium py-1.5 rounded-2xl">
+                Add to cart
+              </button>
+              
 
 
             </div>
