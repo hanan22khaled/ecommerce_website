@@ -134,11 +134,7 @@ function Header() {
         <span className="price">$ 0.00</span>
 
         <Link
-<<<<<<< HEAD
           to="/Checkout"
-=======
-         
->>>>>>> 40bef28d5cb3bdb839c1c6e09dd0701f582df043
           className="w-8 h-8 flex items-center justify-center rounded-full text-red-500 bg-red-50 border border-red-500 circle-round"
         >
           <i className="fa-solid fa-bag-shopping"></i>
