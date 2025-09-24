@@ -154,7 +154,7 @@ function BestSellers() {
         {/* الكروت */}
         <div
           ref={scrollRef}
-          className="flex overflow-x-auto scrollbar-hide scroll-smooth pb-8 gap-4"
+          className="flex overflow-x-auto scrollbar-hide scroll-smooth pb-8 gap-8"
           onClick={() => setShowModal(true)}
         >
           {Array.from({ length: 10 }).map((_, i) => (
